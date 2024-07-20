@@ -1,0 +1,40 @@
+public class SimpleSegregateZerosOnes {
+    public static void segregateZerosOnes(int[] arr) {
+        int countZeros = 0;
+
+        // Count the number of zeros
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == 0) {
+                countZeros++;
+            }
+        }
+
+        // Fill the array with zeros and ones
+        for (int i = 0; i < arr.length; i++) {
+            if (i < countZeros) {
+                arr[i] = 0;
+            } else {
+                arr[i] = 1;
+            }
+        }
+    }
+
+    public static void printArray(int[] arr) {
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {0, 1, 0, 1, 1, 0, 0, 1};
+        
+        System.out.println("Original array:");
+        printArray(arr);
+
+        segregateZerosOnes(arr);
+
+        System.out.println("Array after segregation:");
+        printArray(arr);
+    }
+}
